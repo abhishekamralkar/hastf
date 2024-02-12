@@ -1,0 +1,22 @@
+#+TITLE: hastf CLI
+
+* Overview
+
+A simple command-line tool written in Go for downloading the Terraform binary .
+
+** Features
+
+ Downloads a specified version of Terraform.
+
+** Command-line Options
+
+ -v: Specify the version of Terraform to download.
+
+** Building from Source
+
+ If you prefer to build the binary from source:
+
+ #+begin_src 
+ go build -o hastf
+ #+end_src
+

@@ -1,0 +1,34 @@
+# .goreleaser.yml
+project_name: hastf
+
+# Build settings
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+
+# Archive settings
+archives:
+  - id: hastf
+    name_template: >-
+      {{- .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end -}}
+
+# GitHub release settings
+release:
+  github:
+    owner: abhishekamralkar
+    name: hastf
+
+# Checksum settings
+checksum:
+  name_template: 'checksums.txt'
